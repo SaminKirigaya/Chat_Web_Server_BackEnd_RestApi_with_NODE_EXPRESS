@@ -10,6 +10,9 @@ const LoginMe = require('../RoutPaths/LoginMe');
 const AmILogged = require('../RoutPaths/AmILogged');
 const MyData = require('../RoutPaths/MyData');
 const ChangeUserData = require('../RoutPaths/ChangeUserData');
+const LogOut = require('../RoutPaths/LogOut');
+const DeleteId = require('../RoutPaths/DeleteId');
+
 
 // Registering 
 Routes.post('/registration', 
@@ -43,6 +46,20 @@ Routes.post('/changethisid/:usersl',
 AuthenUser, 
 ChangeUserData 
 )
+
+//Logout Me and add my last logout time when
+Routes.get('/logout/:usersl', 
+AuthenUser, 
+LogOut 
+)
+
+
+// Routes Delete Id Permanently
+Routes.get('/deleteId/:usersl', 
+AuthenUser, 
+DeleteId 
+)
+
 
 
 
