@@ -10,6 +10,12 @@ async function LogOut(req, res, next){
         const isLoggedIn = await TokenDatabase.findOne({token : token});
 
         if(isLoggedIn){
+            
+            const alreadyExist = await LastLoggedIn.findOne({username : isLoggedIn.username});
+            if(alreadyExist){
+                await LastLoggedIn.deleteMany({username : isLoggedIn.username});
+            }
+
             const lastonline = new LastLoggedIn({
                 username : isLoggedIn.username
             })

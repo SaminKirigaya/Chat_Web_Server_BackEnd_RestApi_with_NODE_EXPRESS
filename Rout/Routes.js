@@ -12,7 +12,8 @@ const MyData = require('../RoutPaths/MyData');
 const ChangeUserData = require('../RoutPaths/ChangeUserData');
 const LogOut = require('../RoutPaths/LogOut');
 const DeleteId = require('../RoutPaths/DeleteId');
-
+const ChangeAvatar = require('../RoutPaths/ChangeAvatar');
+const SearchedUser = require('../RoutPaths/SearchedUser');
 
 // Registering 
 Routes.post('/registration', 
@@ -60,7 +61,17 @@ AuthenUser,
 DeleteId 
 )
 
+// Routes change avatar
+Routes.post('/changeAvatar/:usersl', 
+AuthenUser, 
+ChangeAvatar 
+)
 
 
+//get searched user 
+Routes.post('/searchthisuser/:usersl', 
+AuthenUser, 
+SearchedUser 
+)
 
 module.exports = Routes;
