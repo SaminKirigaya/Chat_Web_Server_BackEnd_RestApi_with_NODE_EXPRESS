@@ -18,7 +18,7 @@ const SendReq = require('../RoutPaths/SendReq');
 const GettingAllReq = require('../RoutPaths/GettingAllReq');
 const AcceptThisReq = require('../RoutPaths/AcceptThisReq');
 const AllMyFriends = require('../RoutPaths/AllMyFriends');
-
+const UnfriendHim = require('../RoutPaths/UnfriendHim');
 
 // Registering 
 Routes.post('/registration', 
@@ -104,7 +104,11 @@ AuthenUser,
 AllMyFriends 
 )
 
-
+// unfriend this ddue 
+Routes.post('/unfriendHim/:usersl', 
+AuthenUser, 
+UnfriendHim 
+)
 
 
 
