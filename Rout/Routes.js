@@ -14,6 +14,11 @@ const LogOut = require('../RoutPaths/LogOut');
 const DeleteId = require('../RoutPaths/DeleteId');
 const ChangeAvatar = require('../RoutPaths/ChangeAvatar');
 const SearchedUser = require('../RoutPaths/SearchedUser');
+const SendReq = require('../RoutPaths/SendReq');
+const GettingAllReq = require('../RoutPaths/GettingAllReq');
+const AcceptThisReq = require('../RoutPaths/AcceptThisReq');
+const AllMyFriends = require('../RoutPaths/AllMyFriends');
+
 
 // Registering 
 Routes.post('/registration', 
@@ -73,5 +78,38 @@ Routes.post('/searchthisuser/:usersl',
 AuthenUser, 
 SearchedUser 
 )
+
+// send req 
+Routes.post('/addFriend/:usersl', 
+AuthenUser, 
+SendReq 
+)
+
+//Seeing all request in screen of user
+Routes.post('/allMyRequests/:usersl', 
+AuthenUser, 
+GettingAllReq
+)
+
+// Accept Specific Req 
+Routes.post('/acceptThisReq/:usersl', 
+AuthenUser, 
+AcceptThisReq
+)
+
+
+// Getting All Friends Data 
+Routes.get('/allMyFriends/:usersl', 
+AuthenUser, 
+AllMyFriends 
+)
+
+
+
+
+
+
+
+
 
 module.exports = Routes;

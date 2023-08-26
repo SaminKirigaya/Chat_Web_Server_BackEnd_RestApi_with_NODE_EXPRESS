@@ -51,6 +51,13 @@ const userSchema = new mongoose.Schema({
       default: Date.now,
     },
   });
+
+
+  userSchema.index({
+    username: 'text',
+    fullname: 'text',
+    email: 'text'
+  });
   
   const VerifiedUsers = mongoose.model('VerifiedUsers', userSchema);
 
