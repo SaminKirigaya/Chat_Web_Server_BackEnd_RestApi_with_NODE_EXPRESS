@@ -1,6 +1,14 @@
 require('dotenv').config();
+const http = require('http');
 const express = require('express');
 const app = express();
+
+
+const server = http.createServer(app);
+const socketIo = require('socket.io');
+const io = socketIo(server);
+
+
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const db = require('./Model/Db');
@@ -22,6 +30,50 @@ app.use(express.json());
 
 app.use('/public/images', express.static(__dirname + '/public/images'));
 
+var userSocketMap = {};
+
+
+
+io.on('connection',(socket)=>{
+    console.log('A user connected ...');
+
+    socket.on('authenticate', (userId) => {
+        userSocketMap[userId] = socket.id;
+        console.log(`User ${userId} authenticated`);
+      });
+
+      
+    socket.on('privateMessage', (data)=>{
+
+        const toSocketId = userSocketMap[data.toUserId];
+        if (toSocketId) {
+        io.to(toSocketId).emit('privateMessage', data.message); // make a logic if message == '' send data.iamge also save all message or image
+        } else {
+        console.log(`User ${data.toUserId} is not connected.`);// set notification and save message in database but not io.to
+        }
+
+    });
+
+
+    socket.on('disconnect', () => {
+         // Remove the user from the mapping when they disconnect
+        const userIdToRemove = Object.keys(userSocketMap).find(
+        (key) => userSocketMap[key] === socket.id
+      );
+      if (userIdToRemove) {
+        delete userSocketMap[userIdToRemove];
+        console.log(`User ${userIdToRemove} disconnected`);
+      }
+
+      });
+
+
+
+    });
+
+
+
+
 
 
 function routeHandle (req, res, next){
@@ -42,13 +94,14 @@ app.use(routeHandle);
 
 app.use((err, req, res, next) => {
     console.error('Global Error Handler:', err);
-    return  res.status(500).json({ error: 'Something went wrong!' });
+    res.status(500).json({ error: 'Something went wrong!' });
+    next(err)
     
 });
 
 
 console.log('Connected To Database ...');
-app.listen(process.env.PORT, ()=>{
+server.listen(process.env.PORT, ()=>{
     console.log(`SERVER RUNNING ... ${process.env.PORT}`);
 })  
 
