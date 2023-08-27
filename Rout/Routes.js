@@ -19,6 +19,9 @@ const GettingAllReq = require('../RoutPaths/GettingAllReq');
 const AcceptThisReq = require('../RoutPaths/AcceptThisReq');
 const AllMyFriends = require('../RoutPaths/AllMyFriends');
 const UnfriendHim = require('../RoutPaths/UnfriendHim');
+const GetUserName = require('../RoutPaths/GetUserName');
+
+
 
 // Registering 
 Routes.post('/registration', 
@@ -111,7 +114,11 @@ UnfriendHim
 )
 
 
-
+//get username 
+Routes.get('/getmyusername/:usersl', 
+AuthenUser, 
+GetUserName 
+)
 
 
 

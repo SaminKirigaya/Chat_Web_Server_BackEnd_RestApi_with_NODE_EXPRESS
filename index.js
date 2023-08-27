@@ -1,17 +1,23 @@
 require('dotenv').config();
 const http = require('http');
+const {AuthenLiveServer} = require('./Middleware/AuthenLiveServer');
 const express = require('express');
 const app = express();
-
-
+const cors = require('cors');
+app.use(cors()); 
 const server = http.createServer(app);
 const socketIo = require('socket.io');
-const io = socketIo(server);
+const io = socketIo(server,{
+    cors: {
+        origin: '*',
+      }
+});
 
 
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const db = require('./Model/Db');
+const { date } = require('joi');
 
 
 app.use(morgan('tiny'));
@@ -47,7 +53,22 @@ io.on('connection',(socket)=>{
 
         const toSocketId = userSocketMap[data.toUserId];
         if (toSocketId) {
-        io.to(toSocketId).emit('privateMessage', data.message); // make a logic if message == '' send data.iamge also save all message or image
+
+        const whosentsl = data.fromUserId;
+        const sendertk = data.myToken;
+        console.log(whosentsl, sendertk)
+        const result = AuthenLiveServer(whosentsl, sendertk);
+        console.log(result)
+
+        io.to(toSocketId).emit('privateMessage', [{
+            message: data.message,
+            image: data.image,
+            username : data.username,
+            sendingtime : data.sendingtime,
+            
+          }]); // make a logic if message == '' send data.iamge also save all message or image
+
+
         } else {
         console.log(`User ${data.toUserId} is not connected.`);// set notification and save message in database but not io.to
         }
