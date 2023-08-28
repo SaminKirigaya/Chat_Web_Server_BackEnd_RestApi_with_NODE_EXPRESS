@@ -21,7 +21,7 @@ async function MyData(req, res, next){
         }
 
     }catch(err){
-        next(err)
+        throw err
     }
 }
 

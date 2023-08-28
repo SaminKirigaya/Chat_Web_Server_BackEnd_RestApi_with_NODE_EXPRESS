@@ -32,7 +32,7 @@ async function ChangeAvatar(req, res, next){
         res.status(200).json({
             message : err
         })
-        next(err)
+        throw err
     }
 }
 

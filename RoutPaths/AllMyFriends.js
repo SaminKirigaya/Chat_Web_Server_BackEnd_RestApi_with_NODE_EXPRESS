@@ -44,7 +44,7 @@ async function AllMyFriends(req, res, next){
 
 
     }catch(err){
-        next(err)
+        throw err
     }
 }
 

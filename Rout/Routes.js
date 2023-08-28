@@ -20,7 +20,10 @@ const AcceptThisReq = require('../RoutPaths/AcceptThisReq');
 const AllMyFriends = require('../RoutPaths/AllMyFriends');
 const UnfriendHim = require('../RoutPaths/UnfriendHim');
 const GetUserName = require('../RoutPaths/GetUserName');
-
+const GetConv = require('../RoutPaths/GetConv');
+const GetNotis = require('../RoutPaths/GetNotis');
+const DelThisNoti = require('../RoutPaths/DelThisNoti');
+const GetTotalNumbers = require('../RoutPaths/GetTotalNumbers');
 
 
 // Registering 
@@ -120,7 +123,29 @@ AuthenUser,
 GetUserName 
 )
 
+// get old conversation 
+Routes.post('/getmyoldconv/:usersl', 
+AuthenUser, 
+GetConv 
+)
+
+// get all notis 
+Routes.get('/getNoti/:usersl', 
+AuthenUser, 
+GetNotis 
+)
 
 
+// del specific notif
+Routes.post('/delthisNoti/:usersl', 
+AuthenUser, 
+DelThisNoti 
+)
+
+// Get Total amount notif 
+Routes.get('/getTotalNotiAmount/:usersl', 
+AuthenUser, 
+GetTotalNumbers 
+)
 
 module.exports = Routes;

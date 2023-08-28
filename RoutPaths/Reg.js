@@ -204,7 +204,7 @@ async function Reg(req, res, next) {
 
     } catch (error) {
         console.error('Error during registration:', error);
-        next(error)
+        throw error
     }
 }
 

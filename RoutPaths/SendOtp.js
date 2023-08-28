@@ -84,7 +84,7 @@ async function SendOtp(req, res, next) {
 
     } catch (error) {
         console.error('Error during registration:', error);
-        next(error)
+        throw error
     }
 }
 
