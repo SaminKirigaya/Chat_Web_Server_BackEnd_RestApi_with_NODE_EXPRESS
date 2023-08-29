@@ -9,6 +9,11 @@ async function GetTotalNumbers(req, res, next){
                 message : 'success',
                 amount : totalAmount.length
             })
+        }else{
+            return res.status(200).json({
+                message : 'failed',
+                
+            })
         }
     }catch(err){
         throw err

@@ -9,6 +9,9 @@ async function DelThisNoti(req, res, next){
         if(isitmine){
             if(isitmine.recverID == usersl){
                 await Notifications.findByIdAndDelete(notino);
+                return res.status(200).json({
+                    message : 'success'
+                })
             }
         }
         

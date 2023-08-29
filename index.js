@@ -10,6 +10,9 @@ const {ImgNameGener} = require('./Middleware/ImgNameGener');
 const {SaveMessages} = require('./Middleware/SaveMessages');
 const {SendNotification} = require('./Middleware/SendNotification');
 const {SendNotiIfChatOther} = require('./Middleware/SendNotiIfChatOther');
+const {getCondition} = require('./Middleware/getCondition');
+const {getMyAmount} = require('./Middleware/getMyAmount');
+const {dragthreeMSG} = require('./Middleware/dragthreeMSG');
 
 
 const express = require('express');
@@ -73,7 +76,11 @@ io.on('connection',(socket)=>{
     socket.on('privateMessage', async(data)=>{
 
         const toSocketId = userSocketMap[data.toUserId];
-        if (toSocketId) { //if reciever is onloine
+
+        //--------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------
+
+        if (toSocketId) { //if reciever is online
 
         const whosentsl = data.fromUserId;
         const sendertk = data.myToken;
@@ -98,7 +105,8 @@ io.on('connection',(socket)=>{
                     username : UserData.username,
                     senderAvatar : UserData.image,
                     sentBy : data.fromUserId
-                  }]); // make a logic if message == '' send data.iamge also save all message or image
+                  }]); // make a logic if message == '' send data.image also save all message or image
+
 
                   if(data.image){
                     console.log(data.image)
@@ -120,14 +128,39 @@ io.on('connection',(socket)=>{
                     const saved = await SaveMessages(data.fromUserId, data.toUserId, data.message, serverPath, UserData.username, UserData.image, data.sendingtime);
                   }
                   
+
+
                   // notification set if he chatting other but someone different id sent a message :
                   const sendNotif = await SendNotiIfChatOther(data.fromUserId, data.toUserId, UserData.username, UserData.image);
+                  //const chattingother = ? if true
+
+                  var chattingOther = await getCondition(data.fromUserId, data.toUserId);
+                  if(chattingOther){
+                  var amount = await getMyAmount(data.toUserId);
                   
+                  io.to(toSocketId).emit('notification', amount); 
+                  }
+                  
+
+                  // send back sender whom he messaged he needs last 3 user data in navbar
+
+
+                  const senderSocketId = userSocketMap[data.fromUserId];
+                  var threeSenderMsg = await dragthreeMSG(data.fromUserId);
+
+                  io.to(senderSocketId).emit('navThreeLastUsers', threeSenderMsg); 
+                  
+                  
+
 
             }
             
         }
         
+
+        //------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------
+
 
         } else { // if receiver offline so cant emit it now just save in database
 

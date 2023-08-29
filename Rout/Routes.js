@@ -24,6 +24,8 @@ const GetConv = require('../RoutPaths/GetConv');
 const GetNotis = require('../RoutPaths/GetNotis');
 const DelThisNoti = require('../RoutPaths/DelThisNoti');
 const GetTotalNumbers = require('../RoutPaths/GetTotalNumbers');
+const ThreeGuys = require('../RoutPaths/ThreeGuys');
+
 
 
 // Registering 
@@ -147,5 +149,16 @@ Routes.get('/getTotalNotiAmount/:usersl',
 AuthenUser, 
 GetTotalNumbers 
 )
+
+// Last three guy data
+Routes.get('/getLastThree/:usersl', 
+AuthenUser, 
+ThreeGuys 
+)
+
+
+
+
+
 
 module.exports = Routes;
