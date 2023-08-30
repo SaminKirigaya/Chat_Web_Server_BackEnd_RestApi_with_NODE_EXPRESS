@@ -11,7 +11,7 @@ const VerifiedUsers = require('../Model/VerifiedUsers');
 
             const uniqueReceiverIDs = new Set();
             var filteredMessages = [];
-
+            // getting only one data of specific reciever so we filtering each reciver message that we sent last 
             for (const message of messages) {
             if (!uniqueReceiverIDs.has(message.recverId)) {
                 uniqueReceiverIDs.add(message.recverId);

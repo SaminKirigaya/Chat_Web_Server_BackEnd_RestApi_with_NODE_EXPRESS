@@ -13,6 +13,8 @@ const {SendNotiIfChatOther} = require('./Middleware/SendNotiIfChatOther');
 const {getCondition} = require('./Middleware/getCondition');
 const {getMyAmount} = require('./Middleware/getMyAmount');
 const {dragthreeMSG} = require('./Middleware/dragthreeMSG');
+const {checkwhereUser} = require('./Middleware/checkwhereUser');
+const {sendNotfAlways} = require('./Middleware/sendNotfAlways');
 
 
 const express = require('express');
@@ -130,8 +132,31 @@ io.on('connection',(socket)=>{
                   
 
 
-                  // notification set if he chatting other but someone different id sent a message :
-                  const sendNotif = await SendNotiIfChatOther(data.fromUserId, data.toUserId, UserData.username, UserData.image);
+                  // notification set if he chatting other but someone different id sent a message : 
+                  // inside message box mean chatting someone already outside mean afk or working something about profile still need to see notification
+                  const insidemgbox = await checkwhereUser(data.toUserId);
+
+                  if(!insidemgbox){// receiver outside msgbox
+
+                    const sendNotif = await sendNotfAlways(data.fromUserId, data.toUserId, UserData.username, UserData.image);
+                  //const chattingother = ? if true
+                  var amount = await getMyAmount(data.toUserId);
+                  
+                  io.to(toSocketId).emit('notification', amount); 
+
+                   // send back sender whom he messaged he needs last 3 user data in navbar
+
+
+                   const senderSocketId = userSocketMap[data.fromUserId];
+                   var threeSenderMsg = await dragthreeMSG(data.fromUserId);
+ 
+                   io.to(senderSocketId).emit('navThreeLastUsers', threeSenderMsg); 
+                   
+                   
+
+
+                  }else{// receiver inside msgbox
+                    const sendNotif = await SendNotiIfChatOther(data.fromUserId, data.toUserId, UserData.username, UserData.image);
                   //const chattingother = ? if true
 
                   var chattingOther = await getCondition(data.fromUserId, data.toUserId);
@@ -150,6 +175,8 @@ io.on('connection',(socket)=>{
 
                   io.to(senderSocketId).emit('navThreeLastUsers', threeSenderMsg); 
                   
+                  
+                  }
                   
 
 

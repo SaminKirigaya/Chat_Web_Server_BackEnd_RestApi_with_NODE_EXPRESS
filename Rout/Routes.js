@@ -25,7 +25,8 @@ const GetNotis = require('../RoutPaths/GetNotis');
 const DelThisNoti = require('../RoutPaths/DelThisNoti');
 const GetTotalNumbers = require('../RoutPaths/GetTotalNumbers');
 const ThreeGuys = require('../RoutPaths/ThreeGuys');
-
+const setmeinMSGbox = require('../RoutPaths/setmeinMSGbox');
+const setmeoutMSGbox = require('../RoutPaths/setmeoutMSGbox');
 
 
 // Registering 
@@ -157,7 +158,18 @@ ThreeGuys
 )
 
 
+// set me im in msg box 
+Routes.get('/setmeinmsgbox/:usersl', 
+AuthenUser, 
+setmeinMSGbox 
+)
 
+
+// set me out of msg box 
+Routes.get('/setmeoutmsgbox/:usersl', 
+AuthenUser, 
+setmeoutMSGbox 
+)
 
 
 

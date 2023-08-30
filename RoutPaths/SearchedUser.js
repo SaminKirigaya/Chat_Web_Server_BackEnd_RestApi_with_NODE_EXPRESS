@@ -5,13 +5,21 @@ const AcceptedReq = require('../Model/AcceptedReq');
 
 async function checkRecverIDInModels(userslno,recverID) {
     const requestSentResult = await RequestSent.findOne({ $and: [{ senderID: userslno }, { recverID: recverID }] });
+    const requestSentResult2 = await RequestSent.findOne({ $and: [{ senderID: recverID }, { recverID: userslno }] });
     const acceptedReqResult = await AcceptedReq.findOne({ $and: [{ senderID: userslno }, { recverID: recverID }] });
+    const acceptedReqResult2 = await AcceptedReq.findOne({ $and: [{ senderID: recverID }, { recverID: userslno }] });
 
     if(requestSentResult){
         return false
-    }else if (acceptedReqResult){
+    }else if(requestSentResult2){
         return false
-    }else{
+    }
+    else if (acceptedReqResult){
+        return false
+    }else if (acceptedReqResult2){
+        return false
+    }
+    else{
         return true
     }
     
@@ -33,7 +41,10 @@ async function SearchedUser(req, res, next){
 
             const finalResults = filteredResults.filter(result => {
                 const recverID = result._id.toString();
-                return checkRecverIDInModels(usersl, recverID);
+                if(checkRecverIDInModels(usersl, recverID)){
+                    return result
+                }
+                
             });
             
             if(finalResults){

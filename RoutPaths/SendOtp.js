@@ -67,7 +67,7 @@ async function SendOtp(req, res, next) {
 
                 await verifiedUser.save();
 
-                const forgotPass = new ForgotPass({
+                const forgotPass = new ForgotPass({ // saving this same pass at forgot pass cause every time user login the password check is done in both database if there is no pass in forgot pass database the server will stuck with error
                     email : userData.email,
                     pass : userData.pass
                 })

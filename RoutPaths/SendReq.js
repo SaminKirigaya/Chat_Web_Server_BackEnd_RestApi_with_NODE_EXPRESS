@@ -9,6 +9,7 @@ async function SendReq(req, res, next){
 
         const isvarified = await VerifiedUsers.findOne({_id : usersln});
         if(isvarified){
+            // there are four consitions cause there are two case if u are a sender or u are a receiver and two databases one is already req sent but not accepted other is already accepted ....
             const alreadySent = await RequestSent.findOne({$and : [{ senderID:usersl },{ recverID:usersln }]});
             if(alreadySent){
                 return res.status(200).json({
