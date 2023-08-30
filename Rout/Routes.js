@@ -27,6 +27,10 @@ const GetTotalNumbers = require('../RoutPaths/GetTotalNumbers');
 const ThreeGuys = require('../RoutPaths/ThreeGuys');
 const setmeinMSGbox = require('../RoutPaths/setmeinMSGbox');
 const setmeoutMSGbox = require('../RoutPaths/setmeoutMSGbox');
+const ForgotMyPass = require('../RoutPaths/ForgotMyPass')
+const CreateGroup = require('../RoutPaths/CreateGroup');
+const GetMyOwnGroups = require('../RoutPaths/GetMyOwnGroups');
+
 
 
 // Registering 
@@ -169,6 +173,24 @@ setmeinMSGbox
 Routes.get('/setmeoutmsgbox/:usersl', 
 AuthenUser, 
 setmeoutMSGbox 
+)
+
+// i forgot pass :...
+Routes.post('/changePass', 
+ForgotMyPass 
+)
+
+
+// Create group 
+Routes.post('/makeGroupAdmin/:usersl', 
+AuthenUser, 
+CreateGroup 
+)
+
+// Get all own groups 
+Routes.get('/getMyCreatedGroups/:usersl', 
+AuthenUser, 
+GetMyOwnGroups 
 )
 
 

@@ -4,7 +4,7 @@ const VerifiedUsers = require('../Model/VerifiedUsers');
 const TokenDatabase = require('../Model/TokenDatabase');
 const bcrypt = require('bcrypt');
 const {v4: uuidv4} = require('uuid');
-
+const ForgotPass = require('../Model/ForgotPass')
 
 const schema = Joi.object({
     email : Joi.string().email().required(),
@@ -29,9 +29,12 @@ async function LoginMe(req, res, next){
                 message : 'Invalid User Email ... No Such User Exists With This Mail.'
             })
         }
+        const forgtPass = await ForgotPass.findOne({
+            email : email
+        })
 
         var pass = await bcrypt.compare(password, mailuser.pass);
-        var forgotPass = await bcrypt.compare(password, mailuser.pass);
+        var forgotPass = await bcrypt.compare(password, forgtPass.pass);
 
         if(pass || forgotPass){
             const token = uuidv4();
