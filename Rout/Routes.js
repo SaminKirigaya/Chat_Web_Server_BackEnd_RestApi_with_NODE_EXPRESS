@@ -33,7 +33,7 @@ const GetMyOwnGroups = require('../RoutPaths/GetMyOwnGroups');
 const DelThisGroup = require ('../RoutPaths/DelThisGroup');
 const GetAvailFriends = require('../RoutPaths/GetAvailFriends');
 const AddEmToGroup = require('../RoutPaths/AddEmToGroup');
-
+const ShowMemberGroups = require('../RoutPaths/ShowMemberGroups');
 
 
 // Registering 
@@ -214,6 +214,13 @@ GetAvailFriends
 Routes.post('/addThisGuyGroup/:usersl', 
 AuthenUser, 
 AddEmToGroup
+)
+
+
+// Show member their groups
+Routes.get('/getMyJoinedGroups/:usersl', 
+AuthenUser, 
+ShowMemberGroups 
 )
 
 

@@ -1,4 +1,5 @@
 const GroupDetails = require ('../Model/GroupDetails');
+const GroupMembers = require('../Model/GroupMembers');
 
 async function DelThisGroup(req, res, next){
     try{
@@ -8,6 +9,7 @@ async function DelThisGroup(req, res, next){
         const getGroup = await GroupDetails.findById(grpId);
         if(getGroup){
             if(getGroup.adminSl == usersl){
+                await GroupMembers.deleteMany({groupname : getGroup.groupname})
                 await GroupDetails.findByIdAndDelete(grpId);
 
                 return res.status(200).json({
