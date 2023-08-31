@@ -1,9 +1,10 @@
 const GroupDetails = require ('../Model/GroupDetails');
+const GroupMembers = require('../Model/GroupMembers');
 const Joi = require('joi');
 
 const schema = Joi.object({
-    groupname : Joi.string().pattern(/^([a-zA-Z0-9\-_'";,:!@ ]+)$/).required(),
-    purpose : Joi.string().pattern(/^([a-zA-Z0-9\-_'";,:!@ ]+)$/).required(),
+    groupname : Joi.string().pattern(/^([a-zA-Z0-9\-_'.";,:!@ ]+)$/).required(),
+    purpose : Joi.string().pattern(/^([a-zA-Z0-9\-_'";.,:!@ ]+)$/).required(),
     country : Joi.string().pattern(/^([a-zA-Z ]+)$/).required()
 })
 
@@ -35,7 +36,16 @@ async function CreateGroup (req, res, next){
             })
 
             await newGroup.save()
-                        .then(result=>{
+                        .then(async(result)=>{
+
+                            const addMe = new GroupMembers({
+                                groupname : groupname,
+                                adminSl : usersl,
+                                groupSl: result._id,
+                                memberId: usersl
+                            })
+
+                            await addMe.save();
                             return res.status(200).json({
                                 message : 'Successfully Created The Group And Set You Admin ...'
                             })

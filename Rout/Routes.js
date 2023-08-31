@@ -30,6 +30,9 @@ const setmeoutMSGbox = require('../RoutPaths/setmeoutMSGbox');
 const ForgotMyPass = require('../RoutPaths/ForgotMyPass')
 const CreateGroup = require('../RoutPaths/CreateGroup');
 const GetMyOwnGroups = require('../RoutPaths/GetMyOwnGroups');
+const DelThisGroup = require ('../RoutPaths/DelThisGroup');
+const GetAvailFriends = require('../RoutPaths/GetAvailFriends');
+const AddEmToGroup = require('../RoutPaths/AddEmToGroup');
 
 
 
@@ -191,6 +194,26 @@ CreateGroup
 Routes.get('/getMyCreatedGroups/:usersl', 
 AuthenUser, 
 GetMyOwnGroups 
+)
+
+// Delete this group 
+Routes.post('/delThisGroup/:usersl', 
+AuthenUser, 
+DelThisGroup 
+)
+
+
+// Get Friend Data to add in group 
+Routes.post('/getavailFriendsForGroup/:usersl', 
+AuthenUser,
+GetAvailFriends 
+)
+
+
+// Add this guy perm in my group
+Routes.post('/addThisGuyGroup/:usersl', 
+AuthenUser, 
+AddEmToGroup
 )
 
 
