@@ -34,6 +34,7 @@ const DelThisGroup = require ('../RoutPaths/DelThisGroup');
 const GetAvailFriends = require('../RoutPaths/GetAvailFriends');
 const AddEmToGroup = require('../RoutPaths/AddEmToGroup');
 const ShowMemberGroups = require('../RoutPaths/ShowMemberGroups');
+const LeaveMeFromHere = require('../RoutPaths/LeaveMeFromHere');
 
 
 // Registering 
@@ -223,6 +224,11 @@ AuthenUser,
 ShowMemberGroups 
 )
 
+// Leave this group if im not admin
+Routes.post('/leaveThisGroup/:usersl', 
+AuthenUser,
+LeaveMeFromHere
+)
 
 
 module.exports = Routes;
