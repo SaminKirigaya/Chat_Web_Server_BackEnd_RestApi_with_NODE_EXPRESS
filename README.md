@@ -70,8 +70,8 @@ Start the server
 The most important thing which you must remember is that you have to change .env file and adjust it according to your hosting.I ran the project in localhost in port 8000.
 
 PORT=8000
-SMTP_MAIL=
-SMTP_PASS=
+SMTP_MAIL= {Must add ur smtp mail here}
+SMTP_PASS= {Must add smtp mails google provided pass}
 IMG=http://localhost:8000
 DBURL=mongodb://0.0.0.0:27017/chatserver
 
