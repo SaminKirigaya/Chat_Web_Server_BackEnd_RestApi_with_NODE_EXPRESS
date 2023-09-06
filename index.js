@@ -15,6 +15,8 @@ const {getMyAmount} = require('./Middleware/getMyAmount');
 const {dragthreeMSG} = require('./Middleware/dragthreeMSG');
 const {checkwhereUser} = require('./Middleware/checkwhereUser');
 const {sendNotfAlways} = require('./Middleware/sendNotfAlways');
+const {CheckIfMember} = require ('./Middleware/CheckIfMember');
+const {SaveGroupMessages} = require('./Middleware/SaveGroupMessages');
 
 
 const express = require('express');
@@ -111,7 +113,7 @@ io.on('connection',(socket)=>{
 
 
                   if(data.image){
-                    console.log(data.image)
+                    
                     const uniqueFilename = await ImgNameGener(20); // Implement a function to generate a unique filename
                     const imagePath = `public/images/${uniqueFilename}.jpg`; // Adjust the file extension as needed
                     const serverPath = `http://localhost:8000/public/images/${uniqueFilename}.jpg` 
@@ -211,7 +213,7 @@ io.on('connection',(socket)=>{
     
     
                     if(data.image){
-                        console.log(data.image)
+                      
                         const uniqueFilename = await ImgNameGener(20); // Implement a function to generate a unique filename
                         const imagePath = `public/images/${uniqueFilename}.jpg`; // Adjust the file extension as needed
                         const serverPath = `http://localhost:8000/public/images/${uniqueFilename}.jpg` 
@@ -247,6 +249,59 @@ io.on('connection',(socket)=>{
     );
 
 
+
+    // -----------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------
+    // Group Message Function 
+
+    
+
+    socket.on('GroupMessage', async(data)=>{
+
+      var UserData = await LiveSenderData(data.fromUserId);
+
+      // If from user id a member send the message there
+      var IsMember  = await CheckIfMember(data.fromUserId, data.toUserId);
+
+      if(IsMember){
+
+        io.emit(`${data.toUserId}`, [{ // sending msg cause receiver is online
+          message: data.message,
+          image: data.image,
+          sendingtime : data.sendingtime,
+          username : UserData.username,
+          senderAvatar : UserData.image,
+          sentBy : data.fromUserId
+        }]);
+
+
+        //save data
+        if(data.image){
+          
+          const uniqueFilename = await ImgNameGener(20); // Implement a function to generate a unique filename
+          const imagePath = `public/images/${uniqueFilename}.jpg`; // Adjust the file extension as needed
+          const serverPath = `http://localhost:8000/public/images/${uniqueFilename}.jpg` 
+          fs.writeFile(imagePath, Buffer.from(data.image), (err) => {
+              if (err) {
+                console.error('Error writing image:', err);
+                // Handle the error
+              } else {
+                console.log('Image saved successfully.');
+                // Perform any additional actions
+              }});
+
+          const saved = await SaveGroupMessages(data.fromUserId, data.toUserId, data.message, serverPath, UserData.username, UserData.image, data.sendingtime);
+        }else{
+          const serverPath = null
+          const saved = await SaveGroupMessages(data.fromUserId, data.toUserId, data.message, serverPath, UserData.username, UserData.image, data.sendingtime);
+        }
+
+
+
+      }
+      
+     });
 
 
 

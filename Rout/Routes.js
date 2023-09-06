@@ -35,6 +35,10 @@ const GetAvailFriends = require('../RoutPaths/GetAvailFriends');
 const AddEmToGroup = require('../RoutPaths/AddEmToGroup');
 const ShowMemberGroups = require('../RoutPaths/ShowMemberGroups');
 const LeaveMeFromHere = require('../RoutPaths/LeaveMeFromHere');
+const GetOldGroupConv = require('../RoutPaths/GetOldGroupConv');
+const CheckIfMeAdmin = require('../RoutPaths/CheckIfMeAdmin');
+const kikEm = require('../RoutPaths/kikEm');
+
 
 
 // Registering 
@@ -230,5 +234,24 @@ AuthenUser,
 LeaveMeFromHere
 )
 
+// Get Old Convs 
+Routes.post('/getmyoldGroupconv/:usersl',
+AuthenUser, 
+GetOldGroupConv 
+)
+
+
+// check if i am an admin
+Routes.post('/amIGroupAdmin/:usersl', 
+AuthenUser, 
+CheckIfMeAdmin
+)
+
+
+// kik em
+Routes.post('/kickThisGuy/:usersl', 
+AuthenUser, 
+kikEm 
+)
 
 module.exports = Routes;
