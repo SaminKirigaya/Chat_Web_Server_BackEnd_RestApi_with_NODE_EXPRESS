@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "64e85ce8fb942a1f5e1138fe"
+  },
+  "email": "potato@gmail.com",
+  "pass": "$2b$10$a0IJcFhq2EapOq2LIiMhpuKUm.GvpDeHB1AaW4mXCrMQ5KJuRHotC",
+  "username": "Potato",
+  "image": "http://localhost:8000/public/images/cat2.jpg",
+  "country": "Baghdad",
+  "age": 21,
+  "dateOfBirth": {
+    "$date": "2023-08-16T00:00:00.000Z"
+  },
+  "gender": "Male",
+  "fullname": "Pocha Potato",
+  "joinedDate": {
+    "$date": "2023-08-25T07:51:20.479Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e8c9261578b5b5ff7e5b93"
+  },
+  "email": "hinata@gmail.com",
+  "pass": "$2b$10$MQ4yAPByoesA0/v2PGOvJeWcvYj2.rv.iYb1UNSr5bqC/DktnBsqG",
+  "username": "Hinata",
+  "image": "http://localhost:8000/public/images/cat6.jpg",
+  "country": "Japan",
+  "age": 22,
+  "dateOfBirth": {
+    "$date": "2023-08-16T00:00:00.000Z"
+  },
+  "gender": "Male",
+  "fullname": "Hinata Uzumaki",
+  "joinedDate": {
+    "$date": "2023-08-25T15:33:15.209Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e9c8efce88b3d6576666f8"
+  },
+  "email": "luffy@gmail.com",
+  "pass": "$2b$10$yhs.ZFDIfkuAS7zQBQJ6w.nFWgt1UOanNR6tw5iEnw3Zx3/X6039K",
+  "username": "Luffy",
+  "image": "http://localhost:8000/public/images/cat9.jpg",
+  "country": "Japan",
+  "age": 21,
+  "dateOfBirth": {
+    "$date": "2023-08-02T00:00:00.000Z"
+  },
+  "gender": "Male",
+  "fullname": "Monkey D Luffy",
+  "joinedDate": {
+    "$date": "2023-08-26T09:42:49.591Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64eef2ad5f2cc0df39682326"
+  },
+  "email": "pikachu@gmail.com",
+  "pass": "$2b$10$VfOon.nfrzndjA60HUjY2eKdzGOTO4q4DZiG2vZHNWkdXzgfQ0kTi",
+  "username": "pikachu",
+  "image": "http://localhost:8000/public/images/cat3.jpg",
+  "country": "Japan",
+  "age": 21,
+  "dateOfBirth": {
+    "$date": "2023-07-31T00:00:00.000Z"
+  },
+  "gender": "Male",
+  "fullname": "Pika pi",
+  "joinedDate": {
+    "$date": "2023-08-30T07:42:07.537Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ef221b802a01d327367ea2"
+  },
+  "email": "pinokio@gmail.com",
+  "pass": "$2b$10$TCw/zBJw2AfJGzelgg.gK.8bDurMlr9I3RT809io3MozjO3pxckdy",
+  "username": "pinokio",
+  "image": "http://localhost:8000/public/images/cat1.jpg",
+  "country": "Japan",
+  "age": 21,
+  "dateOfBirth": {
+    "$date": "2023-08-02T00:00:00.000Z"
+  },
+  "gender": "Male",
+  "fullname": "Pinokio",
+  "joinedDate": {
+    "$date": "2023-08-30T11:04:31.685Z"
+  },
+  "__v": 0
+}]

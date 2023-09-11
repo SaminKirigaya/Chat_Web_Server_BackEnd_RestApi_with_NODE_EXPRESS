@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "64e85d78fb942a1f5e113908"
+  },
+  "email": "potato@gmail.com",
+  "pass": "$2b$10$a0IJcFhq2EapOq2LIiMhpuKUm.GvpDeHB1AaW4mXCrMQ5KJuRHotC",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e8c9bb1578b5b5ff7e5baa"
+  },
+  "email": "hinata@gmail.com",
+  "pass": "$2b$10$OzY5jjnporruSJ6pX4hy/.ZA/J8pG0pir5CZNTPmMOKMFsaRUXxIm",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e9c919ce88b3d657666700"
+  },
+  "email": "luffy@gmail.com",
+  "pass": "$2b$10$yhs.ZFDIfkuAS7zQBQJ6w.nFWgt1UOanNR6tw5iEnw3Zx3/X6039K",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64eef2cf5f2cc0df3968232e"
+  },
+  "email": "pikachu@gmail.com",
+  "pass": "$2b$10$VfOon.nfrzndjA60HUjY2eKdzGOTO4q4DZiG2vZHNWkdXzgfQ0kTi",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ef223f802a01d327367eaa"
+  },
+  "email": "pinokio@gmail.com",
+  "pass": "$2b$10$TCw/zBJw2AfJGzelgg.gK.8bDurMlr9I3RT809io3MozjO3pxckdy",
+  "__v": 0
+}]

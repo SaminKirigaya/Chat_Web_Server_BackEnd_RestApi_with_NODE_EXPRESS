@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "64f0b89ae23049824bafb5ad"
+  },
+  "groupname": "Harry Potter Fan Club",
+  "adminSl": "64ef221b802a01d327367ea2",
+  "groupSl": "64f0b89ae23049824bafb5ab",
+  "memberId": "64ef221b802a01d327367ea2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f0b8a4e23049824bafb5d2"
+  },
+  "groupname": "Harry Potter Fan Club",
+  "adminSl": "64ef221b802a01d327367ea2",
+  "groupSl": "64f0b89ae23049824bafb5ab",
+  "memberId": "64e9c8efce88b3d6576666f8",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f17e1e4012a95eb446023c"
+  },
+  "groupname": "Potato chips lover",
+  "adminSl": "64ef221b802a01d327367ea2",
+  "groupSl": "64f17e1e4012a95eb446023a",
+  "memberId": "64ef221b802a01d327367ea2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f8344656cb78820c02165f"
+  },
+  "groupname": "Dragon Ball Z Fanbase",
+  "adminSl": "64e9c8efce88b3d6576666f8",
+  "groupSl": "64f8344656cb78820c02165d",
+  "memberId": "64e9c8efce88b3d6576666f8",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f8346156cb78820c021686"
+  },
+  "groupname": "Dragon Ball Z Fanbase",
+  "adminSl": "64e9c8efce88b3d6576666f8",
+  "groupSl": "64f8344656cb78820c02165d",
+  "memberId": "64e8c9261578b5b5ff7e5b93",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f8346256cb78820c02168d"
+  },
+  "groupname": "Dragon Ball Z Fanbase",
+  "adminSl": "64e9c8efce88b3d6576666f8",
+  "groupSl": "64f8344656cb78820c02165d",
+  "memberId": "64ef221b802a01d327367ea2",
+  "__v": 0
+}]

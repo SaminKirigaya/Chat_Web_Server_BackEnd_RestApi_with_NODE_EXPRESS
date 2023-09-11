@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "64f81768efca7d1e480eb45d"
+  },
+  "token": "fc24da3b-285f-4c0c-89a8-b6ff156d851e",
+  "username": "Luffy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83296efca7d1e480eb7b4"
+  },
+  "token": "87a7418a-58dc-4217-a4a0-f8bd5527e09f",
+  "username": "Hinata",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f835f956cb78820c021894"
+  },
+  "token": "715aedc8-c817-47e5-afaf-4923398a758f",
+  "username": "pinokio",
+  "__v": 0
+}]

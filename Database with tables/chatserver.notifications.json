@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "64f2d0419a48a4e759ae1684"
+  },
+  "senderID": "64ef221b802a01d327367ea2",
+  "recverID": "64e85ce8fb942a1f5e1138fe",
+  "username": "pinokio",
+  "image": "http://localhost:8000/public/images/cat1.jpg",
+  "alert": "pinokio messaged you while you were AFK or Busy ... He might be sad ... 😣😣😣",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f71dd724f36a4ae677522a"
+  },
+  "senderID": "64e8c9261578b5b5ff7e5b93",
+  "recverID": "64e85ce8fb942a1f5e1138fe",
+  "username": "Hinata",
+  "image": "http://localhost:8000/public/images/cat6.jpg",
+  "alert": "Hinata messaged you while you were offline ... He might be sad so reply quicccccckkkkkkkkkkkk 😣😣😣",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f73ab124f36a4ae6776d52"
+  },
+  "senderID": "64e8c9261578b5b5ff7e5b93",
+  "recverID": "64e9c8efce88b3d6576666f8",
+  "username": "Hinata",
+  "image": "http://localhost:8000/public/images/cat6.jpg",
+  "alert": "Hinata messaged you while you were AFK or Busy ... He might be sad ... 😣😣😣",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f80d8ad0f94957f6141e73"
+  },
+  "senderID": "64e8c9261578b5b5ff7e5b93",
+  "recverID": "64eef2ad5f2cc0df39682326",
+  "username": "Hinata",
+  "image": "http://localhost:8000/public/images/cat6.jpg",
+  "alert": "Hinata messaged you while you were offline ... He might be sad so reply quicccccckkkkkkkkkkkk 😣😣😣",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f832ffefca7d1e480eb888"
+  },
+  "senderID": "64e9c8efce88b3d6576666f8",
+  "recverID": "64e8c9261578b5b5ff7e5b93",
+  "username": "Luffy",
+  "image": "http://localhost:8000/public/images/cat9.jpg",
+  "alert": "Luffy messaged you while you were AFK or Busy ... He might be sad ... 😣😣😣",
+  "__v": 0
+}]

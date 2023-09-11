@@ -1,0 +1,144 @@
+[{
+  "_id": {
+    "$oid": "64ef228b802a01d327368027"
+  },
+  "userId": "64eef2ad5f2cc0df39682326",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ef228b802a01d327368034"
+  },
+  "userId": "64eef2ad5f2cc0df39682326",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ef228b802a01d327368039"
+  },
+  "userId": "64eef2ad5f2cc0df39682326",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f734e024f36a4ae677671b"
+  },
+  "userId": "64e85ce8fb942a1f5e1138fe",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f734e224f36a4ae6776727"
+  },
+  "userId": "64e85ce8fb942a1f5e1138fe",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f734e224f36a4ae677672d"
+  },
+  "userId": "64e85ce8fb942a1f5e1138fe",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f734e424f36a4ae6776739"
+  },
+  "userId": "64e85ce8fb942a1f5e1138fe",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f734e424f36a4ae677673f"
+  },
+  "userId": "64e85ce8fb942a1f5e1138fe",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ade56cb78820c021c00"
+  },
+  "userId": "64e9c8efce88b3d6576666f8",
+  "status": "Inside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ade56cb78820c021c19"
+  },
+  "userId": "64ef221b802a01d327367ea2",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ade56cb78820c021c1f"
+  },
+  "userId": "64ef221b802a01d327367ea2",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ade56cb78820c021c25"
+  },
+  "userId": "64e9c8efce88b3d6576666f8",
+  "status": "Inside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ade56cb78820c021c3b"
+  },
+  "userId": "64e8c9261578b5b5ff7e5b93",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ade56cb78820c021c41"
+  },
+  "userId": "64e8c9261578b5b5ff7e5b93",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83adf56cb78820c021c55"
+  },
+  "userId": "64e9c8efce88b3d6576666f8",
+  "status": "Inside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83adf56cb78820c021c5b"
+  },
+  "userId": "64e9c8efce88b3d6576666f8",
+  "status": "Inside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ae056cb78820c021c67"
+  },
+  "userId": "64e8c9261578b5b5ff7e5b93",
+  "status": "Outside",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f83ae056cb78820c021c6d"
+  },
+  "userId": "64e8c9261578b5b5ff7e5b93",
+  "status": "Outside",
+  "__v": 0
+}]
